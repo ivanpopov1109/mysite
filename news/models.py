@@ -8,4 +8,7 @@ class News(models.Model):
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
     is_published = models.BooleanField(default=True)
 
+    def __str__(self): # что бы в выводе News.object.all() у нас было строковое представление названи объекта а не название приложения и его идентификатор
+        return self.title
+
 # Create your models here.

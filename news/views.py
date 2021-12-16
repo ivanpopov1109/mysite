@@ -1,9 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render #эта функция занимается рендерингом шаблонов
 from django.http import HttpResponse
+from .models import News # точка перед модулем указывает на текущую директорию проекта
 
 
 def index(request):
-    return HttpResponse('Hello word')
-
-def test(request):
-    return HttpResponse('<h1>Тестовая страница</h1>')
+    news = News.objects.order_by('-created_at') # что бы новости шли в обратном порядки создания  используем метод order_by со знаком "-"
+    context = {
+        'news': news,
+        'title': 'Список новостей'
+    }
+    return render(request, template_name='news/index.html', context=context)

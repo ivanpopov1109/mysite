@@ -23,7 +23,7 @@ from django.urls import path, include
 from news.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path ('news/', include('news.urls')),
+    path ('', include('news.urls')),
 
 ]
 # это нужно для
