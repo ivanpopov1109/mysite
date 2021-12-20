@@ -19,6 +19,8 @@ class News(models.Model):
         verbose_name_plural = 'Новости'
         ordering = ['-created_at']
 
+
+
 class Category(models.Model):   # модель категорий у нас будет первичной, а модель news вторичной
         title = models.CharField(max_length=150, db_index=True, verbose_name= "Наименование категории")
 
