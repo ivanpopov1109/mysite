@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
+    'rest_framework'
 ]
 # укажем путь к файлу нового приложения но вместо разделителей поставим точки в стиле обращения к модулям python
 MIDDLEWARE = [
