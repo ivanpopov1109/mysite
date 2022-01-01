@@ -26,8 +26,6 @@ router = routers.SimpleRouter()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('news.urls')),
-    path(''),
-
 ]
 # это нужно для
 # формироанвания маршрута  в отладочном режиме, по этому маршруту джанго контроллер будет отдавать медиафайлы
