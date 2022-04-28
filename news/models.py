@@ -32,3 +32,4 @@ class Category(models.Model):   # модель категорий у нас бу
         def __str__(
                 self):
             return self.title
+
