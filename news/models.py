@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class News(models.Model):
     title = models.CharField(max_length=150, verbose_name='Наименование')
@@ -14,6 +15,9 @@ class News(models.Model):
     def __str__(self): # что бы в выводе News.object.all() у нас было строковое представление названи объекта а не название приложения и его идентификатор
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('view_news', kwargs={"news_id": self.pk})
+
     class Meta:
         verbose_name = 'Новость'  # наименование модели в единственном числе
         verbose_name_plural = 'Новости'
@@ -24,12 +28,18 @@ class News(models.Model):
 class Category(models.Model):   # модель категорий у нас будет первичной, а модель news вторичной
         title = models.CharField(max_length=150, db_index=True, verbose_name= "Наименование категории")
 
+        def get_absolute_url(self):
+            return reverse('category', kwargs={'category_id' : self.pk})
+
+
+        def __str__(
+                self):
+            return self.title
+
         class Meta:
             verbose_name = 'Категория'  # наименование модели в единственном числе
             verbose_name_plural = 'Категории'
             ordering = ['title']
 
-        def __str__(
-                self):
-            return self.title
+
 
