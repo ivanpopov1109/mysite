@@ -11,7 +11,7 @@
 {% block content %}
 <div class="card mb-3">
     <div class="card-header">
-        Категория: <a href="{{ news_item.category.get_absolut_url}}">{{ news_item.category }}</a>
+        Категория: <a href="{{ news_item.category.get_absolute_url }}">{{ news_item.category }}</a>
     </div>
     <div class="card-body">
         <div class="media">
@@ -22,8 +22,8 @@
             {% endif %}
             <div class="media-body">
                 <h5 class="card-title">{{ news_item.title }}</h5>
-                <p class="card-text">{{ news_item.content|safe|linebreaks}}</p>
-            </div>  
+                <p class="card-text">{{ news_item.content|safe|linebreaks }}</p>
+            </div>
         </div>
 
     </div>
